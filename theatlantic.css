@@ -1,0 +1,12 @@
+/* needs to be !important to override inline style */
+.ad-boxinjector-d-wrapper,
+.ad-boxinjector-flex-d-wrapper,
+.ad-boxrr-wrapper,
+.ad-native-rr-wrapper,
+.c-bottom-persistent-ad,
+.js-bottom-persistent-ad,
+.cnvr-ad-ubr-iframe,
+.cnvr-ad-container,
+.dynamicAdvertContainer {
+	display: none !important;
+}

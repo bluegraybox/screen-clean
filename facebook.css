@@ -1,0 +1,19 @@
+/* needs to be !important to override inline style */
+/*
+.UFIContainer {
+	display: none !important;
+}
+*/
+
+/* .userContentWrapper { */
+/* ._5pcr { */
+.mbm {
+    border-top: 10px solid red !important;
+    margin-bottom: 100px !important;
+}
+
+.showComments {
+    width: 100% - 14px;
+    border: 2px solid gray;
+    padding: 5px;
+}

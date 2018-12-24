@@ -1,0 +1,5 @@
+/* needs to be !important to override inline style */
+.ad--inArticleBanner,
+.teads-inread {
+	display: none !important;
+}

@@ -1,0 +1,4 @@
+/* needs to be !important to override inline style */
+.post__promotion {
+	display: none !important;
+}

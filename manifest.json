@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "Screen Clean",
+	"version": "1.0",
+	"permissions": [
+		"activeTab"
+	],
+	"content_scripts": [
+		{
+			"matches": ["https://*.citylab.com/*"],
+			"run_at": "document_end",
+			"css": ["citylab.css"]
+		},
+		{
+			"matches": ["https://*.facebook.com/*"],
+			"run_at": "document_end",
+			"css": ["facebook.css"],
+			"js": ["facebook.js"]
+		},
+		{
+			"matches": ["https://*.fastcompany.com/*"],
+			"run_at": "document_end",
+			"css": ["fastcompany.css"]
+		},
+		{
+			"matches": ["https://*.slate.com/*"],
+			"run_at": "document_end",
+			"css": ["slate.css"]
+		},
+		{
+			"matches": ["https://*.theatlantic.com/*"],
+			"run_at": "document_end",
+			"css": ["theatlantic.css"]
+		}
+	]
+}
