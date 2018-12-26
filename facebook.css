@@ -1,10 +1,14 @@
 /* needs to be !important to override inline style */
 
 /* make boundaries between posts clearer */
-.mbm {
+#contentArea .mbm,           /* regular posts, only in the main content area */
+#pagelet_announcement_posts  /* special announcement posts */
+{
     margin-bottom: 200px !important;
 }
-._1qby {
+#contentArea ._4lmd,  /* "Write something" box on group pages */
+#contentArea ._1qby   /* "Create Post" box on list pages */
+{
     margin-bottom: 100px !important;
 }
 
