@@ -23,6 +23,11 @@
 			"css": ["fastcompany.css"]
 		},
 		{
+			"matches": ["https://*.instagram.com/*"],
+			"run_at": "document_end",
+			"css": ["instagram.css"]
+		},
+		{
 			"matches": ["https://*.slate.com/*"],
 			"run_at": "document_end",
 			"css": ["slate.css"]
