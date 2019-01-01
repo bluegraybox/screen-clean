@@ -1,24 +1,29 @@
-function hideComments(oldComments) {
-    // comments is an HTMLCollection; oldComments and allComments are arrays
-    var comments = document.getElementsByClassName("UFIContainer");
-    var newComments = [];
-    var allComments = [];
-    for (var i = 0; i < comments.length; i++) {
-        var c = comments.item(i);
-        allComments.push(c);
-        if (!oldComments.includes(c)) {
-            newComments.push(c);
-        }
+// Covert HTMLCollection to Array so we can work with it
+function toArray(htmlcollection) {
+    var arr = [];
+    for (var i = 0; i < htmlcollection.length; i++) {
+        var c = htmlcollection.item(i);
+        arr.push(c);
     }
-    for (var i = 0; i < newComments.length; i++) {
-        console.log("New element " + newComments[i].id);
+    return arr;
+}
+
+function hideComments(oldComments) {
+    // getElementsByClassName returns an HTMLCollection; need to covert it to Array so we can work with it
+    // comments on main feed
+    var allComments = toArray(document.getElementsByClassName("UFIContainer"));
+    // comments on other person's timeline
+    allComments = allComments.concat(toArray(document.getElementsByClassName("_3w53")));
+    var newComments = allComments.filter(comment => !oldComments.includes(comment));
+    newComments.forEach(function(comment) {
+        console.log("New element " + comment.id);
         var button = document.createElement("div");
         button.classList.add("showComments");
         button.innerHTML = "Show/Hide Comments";
-        button.addEventListener("click", showFunc(newComments[i]));
-        newComments[i].insertAdjacentElement("beforebegin", button);
-        newComments[i].style.display = "none";
-    }
+        button.addEventListener("click", showFunc(comment));
+        comment.insertAdjacentElement("beforebegin", button);
+        comment.style.display = "none";
+    });
     // pass the new allComments to the next invocation
     setTimeout(() => hideComments(allComments), 1000);
 }
