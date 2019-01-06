@@ -36,6 +36,11 @@
 			"matches": ["https://*.theatlantic.com/*"],
 			"run_at": "document_end",
 			"css": ["theatlantic.css"]
+		},
+		{
+			"matches": ["https://*.wired.com/*"],
+			"run_at": "document_end",
+			"css": ["wired.css"]
 		}
 	]
 }

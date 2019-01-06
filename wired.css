@@ -1,0 +1,7 @@
+/* needs to be !important to override inline style */
+.cns-ads-stage,
+.most-popular,
+.social-share-sidebar-component__content
+{
+	display: none !important;
+}
