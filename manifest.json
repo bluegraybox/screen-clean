@@ -46,6 +46,11 @@
 			"matches": ["https://*.wired.com/*"],
 			"run_at": "document_end",
 			"css": ["wired.css"]
+		},
+		{
+			"matches": ["https://*.washingtonpost.com/*"],
+			"run_at": "document_end",
+			"css": ["washingtonpost.css"]
 		}
 	]
 }

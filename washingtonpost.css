@@ -1,0 +1,4 @@
+/* needs to be !important to override inline style */
+wp-ad {
+	display: none !important;
+}
