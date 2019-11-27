@@ -1,11 +1,11 @@
-/* needs to be !important to override inline style */
 
-/* make boundaries between posts clearer */
+/* put some vertical space between posts */
 #contentArea .mbm,           /* regular posts, only in the main content area */
 #pagelet_announcement_posts  /* special announcement posts */
 {
-    margin-bottom: 200px !important;
+    margin-bottom: 200px !important;  /* !important is needed to override inline style */
 }
+
 #contentArea ._4lmd,  /* "Write something" box on group pages */
 #contentArea ._1qby,  /* "Create Post" box on list pages */
 #contentArea #u_0_1j  /* "Create Post" box on people's timelines */
@@ -15,7 +15,11 @@
 
 /* button for show/hide comments */
 .showComments {
-    width: 100% - 14px;
-    border: 2px solid gray;
-    padding: 5px;
+    width: 100% - 24px;         /* 12px padding on each side */
+    padding: 12px;
+    background-color: #4267b2;  /* Facebook blue */
+    color: white;
+    /* match styling of Like button */
+    font-weight: 600;
+    font-size: 13px;
 }
