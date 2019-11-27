@@ -2,23 +2,14 @@
 
 The comments for each post are contained in a single div.
 Find all these comment divs,
-insert a button before each to show/hide it,
-then hide the comment div.
+    insert a button before each to show/hide it,
+    then hide the comment div.
+Check for new comment divs every second, in case of scrolling.
 */
 
 
-function getElements(cssClass) {
-    var htmlcollection = document.getElementsByClassName(cssClass);
-
-    // getElementsByClassName returns an HTMLCollection
-    // need to covert it to Array so we can work with it
-    var arr = [];
-    for (var i = 0; i < htmlcollection.length; i++) {
-        var c = htmlcollection.item(i);
-        arr.push(c);
-    }
-    return arr;
-}
+// Start with an empty array
+hideComments([]);
 
 
 function hideComments(oldCommentDivs) {
@@ -44,6 +35,20 @@ function hideComments(oldCommentDivs) {
 }
 
 
+function getElements(cssClass) {
+    var htmlcollection = document.getElementsByClassName(cssClass);
+
+    // getElementsByClassName returns an HTMLCollection
+    // need to covert it to Array so we can work with it
+    var arr = [];
+    for (var i = 0; i < htmlcollection.length; i++) {
+        var c = htmlcollection.item(i);
+        arr.push(c);
+    }
+    return arr;
+}
+
+
 // Create a new function to show/hide a specific comment div.
 function createShowHideFunc(commentDiv) {
     return (event) => {
@@ -55,7 +60,3 @@ function createShowHideFunc(commentDiv) {
         }
     };
 }
-
-
-// Start with an empty array
-hideComments([]);
