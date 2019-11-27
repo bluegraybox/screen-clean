@@ -1,5 +1,17 @@
-// Covert HTMLCollection to Array so we can work with it
-function toArray(htmlcollection) {
+/* Show/Hide Comments
+
+The comments for each post are contained in a single div.
+Find all these comment divs,
+insert a button before each to show/hide it,
+then hide the comment div.
+*/
+
+
+function getElements(cssClass) {
+    var htmlcollection = document.getElementsByClassName(cssClass);
+
+    // getElementsByClassName returns an HTMLCollection
+    // need to covert it to Array so we can work with it
     var arr = [];
     for (var i = 0; i < htmlcollection.length; i++) {
         var c = htmlcollection.item(i);
@@ -8,36 +20,42 @@ function toArray(htmlcollection) {
     return arr;
 }
 
-function hideComments(oldComments) {
-    // getElementsByClassName returns an HTMLCollection; need to covert it to Array so we can work with it
-    // comments on main feed
-    var allComments = toArray(document.getElementsByClassName("UFIContainer"));
-    // comments on other person's timeline
-    allComments = allComments.concat(toArray(document.getElementsByClassName("_3w53")));
-    var newComments = allComments.filter(comment => !oldComments.includes(comment));
-    newComments.forEach(function(comment) {
-        console.log("New element " + comment.id);
+
+function hideComments(oldCommentDivs) {
+    // Check to see if scrolling has caused new comment blocks to be added to the page.
+    var allCommentDivs = getElements("UFIContainer");              // comment divs on main feed
+    allCommentDivs = allCommentDivs.concat(getElements("_3w53"));  // comment divs on other person's timeline
+    var newCommentDivs = allCommentDivs.filter(commentDiv => !oldCommentDivs.includes(commentDiv));
+
+    // insert a "Show/Hide Comments" button before each new comment div
+    newCommentDivs.forEach(function(commentDiv) {
+        // console.log("New element " + commentDiv.id);  // debugging only
+
         var button = document.createElement("div");
         button.classList.add("showComments");
         button.innerHTML = "Show/Hide Comments";
-        button.addEventListener("click", showFunc(comment));
-        comment.insertAdjacentElement("beforebegin", button);
-        comment.style.display = "none";
+        button.addEventListener("click", createShowHideFunc(commentDiv));
+
+        commentDiv.insertAdjacentElement("beforebegin", button);
+        commentDiv.style.display = "none";
     });
     // pass the new allComments to the next invocation
-    setTimeout(() => hideComments(allComments), 1000);
+    setTimeout(() => hideComments(allCommentDivs), 1000);  // run every second
 }
 
-function showFunc(commentBlock) {
+
+// Create a new function to show/hide a specific comment div.
+function createShowHideFunc(commentDiv) {
     return (event) => {
-        if (commentBlock.style.display == "block") {
-            commentBlock.style.display = "none";
+        if (commentDiv.style.display == "block") {
+            commentDiv.style.display = "none";
         }
         else {
-            commentBlock.style.display = "block";
+            commentDiv.style.display = "block";
         }
     };
 }
+
 
 // Start with an empty array
 hideComments([]);
