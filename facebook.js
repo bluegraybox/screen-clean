@@ -8,20 +8,18 @@ Check for new comment divs every second, in case of scrolling.
 */
 
 
-// Start with an empty array
-hideComments([]);
+hideNewCommentDivs([]);  // Start with an empty array
 
 
-function hideComments(oldCommentDivs) {
+function hideNewCommentDivs(oldCommentDivs) {
     // Check to see if scrolling has caused new comment blocks to be added to the page.
-    var allCommentDivs = getElements("UFIContainer");              // comment divs on main feed
-    allCommentDivs = allCommentDivs.concat(getElements("_3w53"));  // comment divs on other person's timeline
-    var newCommentDivs = allCommentDivs.filter(commentDiv => !oldCommentDivs.includes(commentDiv));
+    var mainFeedCommentDivs = getElements("UFIContainer");
+    var friendTimelineCommentDivs = getElements("_3w53");
+    var allCommentDivs = mainFeedCommentDivs.concat(friendTimelineCommentDivs);
+    var newCommentDivs = allCommentDivs.filter(div => !oldCommentDivs.includes(div));
 
     // insert a "Show/Hide Comments" button before each new comment div
     newCommentDivs.forEach(function(commentDiv) {
-        // console.log("New element " + commentDiv.id);  // debugging only
-
         var button = document.createElement("div");
         button.classList.add("showComments");
         button.innerHTML = "Show/Hide Comments";
@@ -30,16 +28,16 @@ function hideComments(oldCommentDivs) {
         commentDiv.insertAdjacentElement("beforebegin", button);
         commentDiv.style.display = "none";
     });
-    // pass the new allComments to the next invocation
-    setTimeout(() => hideComments(allCommentDivs), 1000);  // run every second
+
+    // pass allCommentDivs to the next invocation to be the oldCommentDivs
+    setTimeout(() => hideNewCommentDivs(allCommentDivs), 1000);  // run every second
 }
 
 
 function getElements(cssClass) {
     var htmlcollection = document.getElementsByClassName(cssClass);
 
-    // getElementsByClassName returns an HTMLCollection
-    // need to covert it to Array so we can work with it
+    // getElementsByClassName returns an HTMLCollection; covert to Array so we can work with it
     var arr = [];
     for (var i = 0; i < htmlcollection.length; i++) {
         var c = htmlcollection.item(i);
