@@ -51,6 +51,12 @@
 			"matches": ["https://*.washingtonpost.com/*"],
 			"run_at": "document_end",
 			"css": ["washingtonpost.css"]
+		},
+		{
+			"matches": ["https://*.youtube.com/*"],
+			"run_at": "document_end",
+			"css": ["youtube.css"],
+			"js": ["youtube.js"]
 		}
 	]
 }
