@@ -1,0 +1,25 @@
+
+/* put some vertical space between posts */
+#content-wrapper div.c-mw-post,    /* on the home page */
+div.content-wrapper div.c-mw-post  /* on a user's page */
+{
+    margin-bottom: 200px !important;  /* !important is needed to override inline style */
+}
+
+/* "Tell your contacts what's happening" box */
+#content-wrapper div.c-mw-postbox-placeholder,    /* on home page */
+div.content-wrapper div.c-mw-postbox-placeholder  /* on user's page */
+{
+    margin-bottom: 100px !important;
+}
+
+/* button for show/hide comments */
+.showComments {
+    width: 100% - 24px;       /* 12px padding on each side */
+    padding: 12px;
+    background-color: #fcfcfc;
+    color: #007da1;           /* MeWe teal */
+    /* match styling of Author header */
+    font-weight: 600;
+    font-size: 14px;
+}
