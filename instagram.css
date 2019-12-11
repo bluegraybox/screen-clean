@@ -1,7 +1,4 @@
-/* needs to be !important to override inline style */
-ul.k59kT li.gElp9:not(:first-child),  /* only show poster's comment  */
-ul.k59kT li.lnrre,  /* hide "More Comments" header */
-section.bR_3v.Fzijm  /* hide "Log in to Instagram" banner */
+ul.XQXOT ul.Mr508   /* only show poster's first comment  */
 {
-	display: none !important;
+	display: none !important;  /* needs to be !important to override inline style */
 }
