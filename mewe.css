@@ -17,6 +17,8 @@ div.content-wrapper div.c-mw-postbox-placeholder  /* on user's page */
 .showComments {
     width: 100% - 24px;       /* 12px padding on each side */
     padding: 12px;
+    border-bottom: 1px solid rgba(150,164,179,.1);
+    border-top: 1px solid rgba(150,164,179,.1);
     background-color: #fcfcfc;
     color: #007da1;           /* MeWe teal */
     /* match styling of Author header */

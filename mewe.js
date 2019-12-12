@@ -14,19 +14,22 @@ hideNewCommentDivs([]);  // Start with an empty array
 function hideNewCommentDivs(oldCommentDivs) {
     // Check to see if scrolling has caused new comment blocks to be added to the page.
     // var mainFeedCommentDivs = getElements("c-mw-postbar");
-    var allCommentDivs = getElements("c-mw-postbar");
+    var allCommentDivs = getElements("comments-table_wrapper");
     // var friendTimelineCommentDivs = getElements("_3w53");
     // var allCommentDivs = mainFeedCommentDivs.concat(friendTimelineCommentDivs);
     var newCommentDivs = allCommentDivs.filter(div => !oldCommentDivs.includes(div));
 
     // insert a "Show/Hide Comments" button before each new comment div
     newCommentDivs.forEach(function(commentDiv) {
-        var button = document.createElement("div");
-        button.classList.add("showComments");
-        button.innerHTML = "Show/Hide Comments";
-        button.addEventListener("click", createShowHideFunc(commentDiv));
+        var numComments = commentDiv.getElementsByClassName("c-mw-comment").length;
+        if ( numComments > 0 ) {
+            var button = document.createElement("div");
+            button.classList.add("showComments");
+            button.innerHTML = "Show/Hide Comments (" + numComments + ")";
+            button.addEventListener("click", createShowHideFunc(commentDiv));
 
-        commentDiv.insertAdjacentElement("beforebegin", button);
+            commentDiv.insertAdjacentElement("beforebegin", button);
+        }
         commentDiv.style.display = "none";
     });
 
