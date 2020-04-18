@@ -54,6 +54,11 @@
 			"css": ["wired.css"]
 		},
 		{
+			"matches": ["https://*.washingtoncitypaper.com/*"],
+			"run_at": "document_end",
+			"css": ["washingtoncitypaper.css"]
+		},
+		{
 			"matches": ["https://*.washingtonpost.com/*"],
 			"run_at": "document_end",
 			"css": ["washingtonpost.css"]
