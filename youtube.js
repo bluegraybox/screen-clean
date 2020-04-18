@@ -1,19 +1,32 @@
-function closePopupAd(cssClasses) {
-    // console.log("checking for ads");
-    var elements = [];
-    for (var i = 0; i < cssClasses.length; i++) {
-        var cssClass = cssClasses[i];
-        var newElements = getElements(cssClass);
-        // console.log("found " + newElements.length + " matches for class " + cssClass);
-        elements = elements.concat(newElements);
-    }
+const closeButtonClasses = [
+    'ytp-ad-overlay-close-button',
+    'ytp-ad-skip-button'
+];
 
-    for (var i = 0; i < elements.length; i++) {
-        // console.log("closing ad");
-        var e = elements[i];
-        e.click();
-    }
-    setTimeout(() => closePopupAd(cssClasses), 3000);  // run every 3 seconds
+function poll() {
+    closePopupAd();
+    setTimeout(poll, 2000);  // run every 2 seconds
+}
+
+const mutationCallback = function(mutationsList, observer) {
+    console.log("mutationCallback");
+    // ignore the mutations and look for new pop-up ads
+    // closePopupAd();
+    setTimeout(closePopupAd, 2000);  // wait two seconds
+}
+
+// Create an observer instance linked to the callback function
+const mutationObserver = new MutationObserver(mutationCallback);
+
+function closePopupAd() {
+    // console.log("checking for ads");
+    closeButtonClasses.forEach(function(cbClass) {
+        // console.log("checking button class: " + cbClass);
+        getElements(cbClass).forEach(function(button) {
+            console.log("found button");
+            button.click();
+        });
+    });
 }
 
 function getElements(cssClass) {
@@ -28,8 +41,17 @@ function getElements(cssClass) {
     return arr;
 }
 
+function setupMutationObserver() {
+    var watchNode = document.getElementById('primary');
+    if (watchNode) {
+        // Start observing the target node for configured mutations
+        mutationObserver.observe(watchNode, { attributes: true, childList: true, subtree: true });  // MutationObserverInitobserverConfig
+    }
+    else {
+        setTimeout(setupMutationObserver, 2000);  // wait two seconds
+    }
+}
 
-closePopupAd([
-    'ytp-ad-overlay-close-button',
-    'ytp-ad-skip-button'
-]);
+// either poll or set up mutation observer, not both
+poll();
+// setupMutationObserver();
