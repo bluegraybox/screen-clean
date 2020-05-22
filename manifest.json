@@ -20,7 +20,8 @@
 			"matches": ["https://*.facebook.com/*"],
 			"run_at": "document_end",
 			"css": ["facebook.css"],
-			"js": ["facebook.js"]
+			"js": ["facebook.js"],
+			"all_frames": true
 		},
 		{
 			"matches": ["https://*.fastcompany.com/*"],
