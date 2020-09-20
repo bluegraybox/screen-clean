@@ -1,0 +1,10 @@
+/* needs to be !important to override inline style */
+div.rotation-item,
+div.leaderboard-container,
+aside.pullquote,
+div.thirdparty-embed,
+aside.postr-recirc,
+.mini-player,
+#banner-container {
+	display: none !important;
+}
