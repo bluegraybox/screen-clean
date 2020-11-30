@@ -1,0 +1,24 @@
+/* needs to be !important to override inline style */
+
+div.advert.top,
+div.advert.right.advert--right-rail,
+div.advert.incontent.advert--inline {
+    min-height: 1px !important;
+    height: 1px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    border: 0px !important;
+}
+
+div.advert:before {
+    content: "" !important;
+}
+
+@media print {
+    div.article-recirculation-aside,
+    div.related-articles,
+    div.ds-layout-grid.ds-layout-grid--edged.newsletter-signup,
+    footer.ds-footer {
+        display: none !important;
+    }
+}

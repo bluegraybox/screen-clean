@@ -22,6 +22,11 @@
 			"css": ["citylab.css"]
 		},
 		{
+			"matches": ["https://*.economist.com/*"],
+			"run_at": "document_end",
+			"css": ["economist.css"]
+		},
+		{
 			"matches": ["https://*.facebook.com/*"],
 			"run_at": "document_end",
 			"css": ["facebook.css"],
