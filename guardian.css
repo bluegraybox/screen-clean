@@ -1,0 +1,5 @@
+/* needs to be !important to override inline style */
+
+#bannerandheader .top-banner-ad-container.js-top-banner {
+	height: 1px !important;
+}

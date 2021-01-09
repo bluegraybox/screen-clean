@@ -39,6 +39,11 @@
 			"css": ["fastcompany.css"]
 		},
 		{
+			"matches": ["https://*.theguardian.com/*", "https://*.guardian.co.uk/*"],
+			"run_at": "document_end",
+			"css": ["guardian.css"]
+		},
+		{
 			"matches": ["https://*.instagram.com/*"],
 			"run_at": "document_end",
 			"css": ["instagram.css"]
