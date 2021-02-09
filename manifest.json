@@ -55,6 +55,11 @@
 			"js": ["mewe.js"]
 		},
 		{
+			"matches": ["https://*.nextdoor.com/*"],
+			"run_at": "document_end",
+			"css": ["nextdoor.css"]
+		},
+		{
 			"matches": ["https://*.slate.com/*"],
 			"run_at": "document_end",
 			"css": ["slate.css"]
