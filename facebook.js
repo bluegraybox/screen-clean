@@ -7,27 +7,34 @@ Find all these comment divs,
 Check for new comment divs every second, in case of scrolling.
 */
 
-filteredSubjects = ["trump", "virus", "coronavirus", "covid"];
+filteredSubjects = ["trump", "republican", "virus", "coronavirus", "covid"];
 
-const watchNode = document.getElementById('contentArea');
+// Main entry point
+var startTime = Date.now();
+hideNewCommentDivs(0, 0);  // Start with an empty array
+
+// const watchNode = document.getElementById('contentArea');
 var oldPostDivs = [];
 var oldCommentDivs = [];
 
+/*
 const mutationCallback = function(mutationsList, observer) {
     console.log("mutationCallback");
     // ignore the mutations and look for new posts
-    var allPostDivs = deleteFilteredPostDivs(oldPostDivs);  // delete before we hide comments
+    var allPostDivs = []; // deleteFilteredPostDivs(oldPostDivs);  // delete before we hide comments
     var allCommentDivs = hideNewCommentDivs(oldCommentDivs);  // Start with an empty array
     oldPostDivs = allPostDivs;
     oldCommentDivs = allCommentDivs;
 }
 
-// Create an observer instance linked to the callback function
-const mutationObserver = new MutationObserver(mutationCallback);
+if (watchNode) {
+    // Create an observer instance linked to the callback function
+    const mutationObserver = new MutationObserver(mutationCallback);
 
-// Start observing the target node for configured mutations
-mutationObserver.observe(watchNode, { childList: true, subtree: true });  // MutationObserverInitobserverConfig
-
+    // Start observing the target node for configured mutations
+    mutationObserver.observe(watchNode, { childList: true, subtree: true });  // MutationObserverInitobserverConfig
+}
+*/
 
 function deleteFilteredPostDivs(oldPostDivs) {
     var mainFeedPostDivs = [];  // TODO: Figure this out later
@@ -53,15 +60,22 @@ function deleteFilteredPostDivs(oldPostDivs) {
 }
 
 
-function hideNewCommentDivs(oldCommentDivs) {
+function hideNewCommentDivs(oldMainCommentDivCount, oldFriendCommentDivCount) {
     // Check to see if scrolling has caused new comment blocks to be added to the page.
-    var mainFeedCommentDivs = getElements("UFIContainer");
-    var friendTimelineCommentDivs = getElements("_3w53");
+    var mainFeedCommentDivs = getElements("UFIContainer");  // This doesn't work/isn't needed anymore, but left in to show handling of multiple styles
+    // var friendTimelineCommentDivs = getElements("_3w53");
+    var friendTimelineCommentDivs = getElements("cwj9ozl2 tvmbv18p");
+
+    var mainLength = mainFeedCommentDivs.length;
+    var friendLength = friendTimelineCommentDivs.length;
+
+    mainFeedCommentDivs = mainFeedCommentDivs.slice(oldMainCommentDivCount);
+    friendTimelineCommentDivs = friendTimelineCommentDivs.slice(oldFriendCommentDivCount);
+
     var allCommentDivs = mainFeedCommentDivs.concat(friendTimelineCommentDivs);
-    var newCommentDivs = allCommentDivs.filter(div => !oldCommentDivs.includes(div));
 
     // insert a "Show/Hide Comments" button before each new comment div
-    newCommentDivs.forEach(function(commentDiv) {
+    allCommentDivs.forEach(function(commentDiv) {
         var button = document.createElement("div");
         button.classList.add("showComments");
         button.innerHTML = "Show/Hide Comments";
@@ -70,6 +84,14 @@ function hideNewCommentDivs(oldCommentDivs) {
         commentDiv.insertAdjacentElement("beforebegin", button);
         commentDiv.style.display = "none";
     });
+    var now = Date.now();
+    if ( (now - startTime) > 20000 && mainLength == 0 && friendLength == 0) {
+        // if it's been 20 seconds since start and we still don't have any matching divs, give up
+    }
+    else {
+        // console.log("Main="+mainLength+", Friends="+friendLength+", time="+Math.floor(now/1000)+", ms="+(now % 1000));
+        setTimeout(hideNewCommentDivs, 1000, mainLength, friendLength);  // run every second
+    }
     return allCommentDivs;
 }
 

@@ -1,11 +1,17 @@
 
 /* put some vertical space between posts */
+div.rq0escxv.l9j0dhe7.du4w35lb.qmfd67dx.hpfvmrgz.gile2uim.buofh1pr.g5gj957u.aov4n071.oi9244e8.bi6gxh9e.h676nmdw.aghb5jc5 div.du4w35lb.k4urcfbm.l9j0dhe7.sjgh65i0, /* posts on WH Group */
+div[data-pagelet=ProfileTimeline] div.du4w35lb.k4urcfbm.l9j0dhe7.sjgh65i0, /* posts on friend's pages */
+/* These may not work anymore; see if removing them does anything */
+div[role=feed] div.sjgh65i0, /* posts on main page feed */
 #contentArea .mbm,           /* regular posts, only in the main content area */
 #pagelet_announcement_posts  /* special announcement posts */
 {
     margin-bottom: 200px !important;  /* !important is needed to override inline style */
 }
 
+div.d2edcug0.oh7imozk.abvwweq7.ejjq64ki > div.sjgh65i0, /* What's on your mind? box, main page */
+/* These may not work anymore; see if removing them does anything */
 #contentArea ._4lmd,  /* "Write something" box on group pages */
 #contentArea ._1qby,  /* "Create Post" box on list pages */
 #contentArea #u_0_1j  /* "Create Post" box on people's timelines */
