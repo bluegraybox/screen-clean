@@ -1,4 +1,6 @@
 /* needs to be !important to override inline style */
+
+div[data-qa="leaderboard"],
 div[data-qa="article-body-ad"],
 wp-ad {
 	display: none !important;
