@@ -11,7 +11,8 @@ filteredSubjects = ["trump", "republican", "virus", "coronavirus", "covid"];
 
 // Main entry point
 var startTime = Date.now();
-hideNewCommentDivs(0, 0);  // Start with an empty array
+hideNewCommentDivs();  // Start with an empty array
+deleteFilteredPostDivs([]);
 
 // const watchNode = document.getElementById('contentArea');
 var oldPostDivs = [];
@@ -22,7 +23,7 @@ const mutationCallback = function(mutationsList, observer) {
     console.log("mutationCallback");
     // ignore the mutations and look for new posts
     var allPostDivs = []; // deleteFilteredPostDivs(oldPostDivs);  // delete before we hide comments
-    var allCommentDivs = hideNewCommentDivs(oldCommentDivs);  // Start with an empty array
+    var allCommentDivs = hideNewCommentDivs();  // Start with an empty array
     oldPostDivs = allPostDivs;
     oldCommentDivs = allCommentDivs;
 }
@@ -37,9 +38,7 @@ if (watchNode) {
 */
 
 function deleteFilteredPostDivs(oldPostDivs) {
-    var mainFeedPostDivs = [];  // TODO: Figure this out later
-    var friendTimelinePostDivs = getElements("mbm");
-    var allPostDivs = mainFeedPostDivs.concat(friendTimelinePostDivs);
+    var allPostDivs = getElements("div[role=feed] > div");
     var newPostDivs = allPostDivs.filter(div => !oldPostDivs.includes(div));
 
     // delete new post divs if they contain filtered subjects
@@ -60,46 +59,45 @@ function deleteFilteredPostDivs(oldPostDivs) {
 }
 
 
-function hideNewCommentDivs(oldMainCommentDivCount, oldFriendCommentDivCount) {
+function hideNewCommentDivs() {
     // Check to see if scrolling has caused new comment blocks to be added to the page.
-    var mainFeedCommentDivs = getElements("UFIContainer");  // This doesn't work/isn't needed anymore, but left in to show handling of multiple styles
-    // var friendTimelineCommentDivs = getElements("_3w53");
-    var friendTimelineCommentDivs = getElements("cwj9ozl2 tvmbv18p");
-
-    var mainLength = mainFeedCommentDivs.length;
-    var friendLength = friendTimelineCommentDivs.length;
-
-    mainFeedCommentDivs = mainFeedCommentDivs.slice(oldMainCommentDivCount);
-    friendTimelineCommentDivs = friendTimelineCommentDivs.slice(oldFriendCommentDivCount);
+    var mainFeedCommentDivs = [];  // getElements("UFIContainer");  // This doesn't work/isn't needed anymore, but left in to show handling of multiple styles
+    var friendTimelineCommentDivs = getElements("div.cwj9ozl2.tvmbv18p");
 
     var allCommentDivs = mainFeedCommentDivs.concat(friendTimelineCommentDivs);
 
     // insert a "Show/Hide Comments" button before each new comment div
     allCommentDivs.forEach(function(commentDiv) {
+        // This check saves us all the hassle of checking comment counts
+        var showComments = commentDiv.getElementsByClassName("showComments");
+        if (showComments.length != 0) {
+            return;
+        }
+
+        var commentList = commentDiv.getElementsByTagName("ul")[0];
         var button = document.createElement("div");
         button.classList.add("showComments");
         button.innerHTML = "Show/Hide Comments";
-        button.addEventListener("click", createShowHideFunc(commentDiv));
+        button.addEventListener("click", createShowHideFunc(commentList));
 
-        commentDiv.insertAdjacentElement("beforebegin", button);
-        commentDiv.style.display = "none";
+        commentList.insertAdjacentElement("beforebegin", button);
+        commentList.style.display = "none";
     });
     var now = Date.now();
-    if ( (now - startTime) > 20000 && mainLength == 0 && friendLength == 0) {
+    if ( (now - startTime) > 20000 && allCommentDivs.length == 0) {
         // if it's been 20 seconds since start and we still don't have any matching divs, give up
     }
     else {
-        // console.log("Main="+mainLength+", Friends="+friendLength+", time="+Math.floor(now/1000)+", ms="+(now % 1000));
-        setTimeout(hideNewCommentDivs, 1000, mainLength, friendLength);  // run every second
+        setTimeout(hideNewCommentDivs, 1000);  // run every second
     }
     return allCommentDivs;
 }
 
 
 function getElements(cssClass) {
-    var htmlcollection = document.getElementsByClassName(cssClass);
+    var htmlcollection = document.querySelectorAll(cssClass);
 
-    // getElementsByClassName returns an HTMLCollection; covert to Array so we can work with it
+    // querySelectorAll returns an HTMLCollection; covert to Array so we can work with it
     var arr = [];
     for (var i = 0; i < htmlcollection.length; i++) {
         var c = htmlcollection.item(i);
