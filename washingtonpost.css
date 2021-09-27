@@ -2,6 +2,8 @@
 
 div[data-qa="leaderboard"],
 div[data-qa="article-body-ad"],
+div[data-feature-id="ad/leaderboard"],
+div[data-feature-id="ad/flex"],
 wp-ad {
 	display: none !important;
 }
