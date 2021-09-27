@@ -19,6 +19,11 @@ div.d2edcug0.oh7imozk.abvwweq7.ejjq64ki > div.sjgh65i0, /* What's on your mind? 
     margin-bottom: 100px !important;
 }
 
+div[data-pagelet=RightRail].cxgpxx05
+{
+    display: none !important;
+}
+
 /* button for show/hide comments */
 .showComments {
     width: 100% - 24px;         /* 12px padding on each side */
