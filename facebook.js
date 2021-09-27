@@ -75,13 +75,15 @@ function hideNewCommentDivs() {
         }
 
         var commentList = commentDiv.getElementsByTagName("ul")[0];
-        var button = document.createElement("div");
-        button.classList.add("showComments");
-        button.innerHTML = "Show/Hide Comments";
-        button.addEventListener("click", createShowHideFunc(commentList));
+        if (commentList !== undefined) {
+            var button = document.createElement("div");
+            button.classList.add("showComments");
+            button.innerHTML = "Show/Hide Comments";
+            button.addEventListener("click", createShowHideFunc(commentList));
 
-        commentList.insertAdjacentElement("beforebegin", button);
-        commentList.style.display = "none";
+            commentList.insertAdjacentElement("beforebegin", button);
+            commentList.style.display = "none";
+        }
     });
     var now = Date.now();
     if ( (now - startTime) > 20000 && allCommentDivs.length == 0) {
