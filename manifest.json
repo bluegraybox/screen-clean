@@ -7,6 +7,11 @@
 	],
 	"content_scripts": [
 		{
+			"matches": ["https://*.bbc.com/*"],
+			"run_at": "document_end",
+			"css": ["bbc.css"]
+		},
+		{
 			"matches": ["https://*.bloomberg.com/*"],
 			"run_at": "document_end",
 			"css": ["bloomberg.css"]

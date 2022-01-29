@@ -1,0 +1,7 @@
+/* needs to be !important to override inline style */
+
+#dotcom-leaderboard,
+#dotcom-leaderboard div {
+	height: 1px !important;
+}
+
