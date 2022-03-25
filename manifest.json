@@ -54,6 +54,11 @@
 			"css": ["instagram.css"]
 		},
 		{
+			"matches": ["https://*.linkedin.com/*"],
+			"run_at": "document_end",
+			"css": ["linkedin.css"]
+		},
+		{
 			"matches": ["https://*.mewe.com/*"],
 			"run_at": "document_end",
 			"css": ["mewe.css"],

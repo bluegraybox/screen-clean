@@ -1,0 +1,10 @@
+/*
+div.occludable-update.ember-view
+*/
+main#main > div > div > div.relative
+{
+    margin-bottom: 200px !important;  /* !important is needed to override inline style */
+}
+/*
+	display: none !important;  /* needs to be !important to override inline style */
+*/
