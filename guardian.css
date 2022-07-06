@@ -1,5 +1,16 @@
 /* needs to be !important to override inline style */
 
-#bannerandheader .top-banner-ad-container.js-top-banner {
+div.top-banner-ad-container.dcr-1ck1ko5,
+div.top-banner-ad-container.dcr-1ck1ko5 div,
+div.top-banner-ad-container.dcr-1ck1ko5 div iframe,
+#top-right-ad-slot,
+#top-right-ad-slot div,
+#top-right-ad-slot div iframe,
+div.js-ad-slot.ad-slot,
+div.js-ad-slot.ad-slot div,
+#bannerandheader .top-banner-ad-container.js-top-banner,
+#bannerandheader .top-banner-ad-container.js-top-banner div {
 	height: 1px !important;
 }
+
+/* div.js-ad-slot.ad-slot ad-slot--inline ad-slot--inline1 ad-slot--outstream ad-slot--rendered */
