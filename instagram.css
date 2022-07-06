@@ -1,4 +1,5 @@
-ul.XQXOT ul.Mr508   /* only show poster's first comment  */
+ul.XQXOT ul.Mr508,  /* only show poster's first comment  */
+ul._a9z6._a9za > ul._a9ym
 {
 	display: none !important;  /* needs to be !important to override inline style */
 }
