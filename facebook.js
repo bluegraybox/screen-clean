@@ -74,7 +74,14 @@ function hideNewCommentDivs() {
             return;
         }
 
-        var commentList = commentDiv.getElementsByTagName("ul")[0];
+        var commentList;
+        for (let i = 0; i < commentDiv.children.length; i++) {
+            var child = commentDiv.children.item(i)
+            if (child.tagName.toLowerCase() === "ul") {
+                commentList = child;
+                break;
+            }
+        };
         if (commentList !== undefined) {
             var button = document.createElement("div");
             button.classList.add("showComments");
