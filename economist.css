@@ -6,12 +6,18 @@ div.advert.top iframe,
 div.advert.right.advert--right-rail,
 div.advert.right.advert--right-rail div,
 div.advert.right.advert--right-rail iframe,
+div.advert--inline,
 div.advert.incontent.advert--inline,
 div.advert.incontent.advert--inline div,
 div.advert.incontent.advert--inline iframe,
 div.advert.incontent.advert--full-width,
 div.advert.incontent.advert--full-width div,
-div.advert.incontent.advert--full-width iframe {
+div.advert.incontent.advert--full-width iframe,
+div.adComponent_adcontainer__dO1Zm,
+div.adComponent_advert__V79Pp.adComponent_incontent__Bxd2J>div,
+div.adComponent_advert__V79Pp.adComponent_right__o9T6r,
+div.adComponent_advert__V79Pp.adComponent_top__5oBsD,
+div.adComponent_advert__V79Pp.adComponent_top__5oBsD.adComponent_hidden___o_ZB {
     min-height: 1px !important;
     height: 1px !important;
     padding: 0px !important;
@@ -28,6 +34,10 @@ div.advert:before {
     div.related-articles,
     div.ds-layout-grid.ds-layout-grid--edged.newsletter-signup,
     footer.ds-footer {
+        display: none !important;
+    }
+
+    div.css-m3y5rp.e1lug06p0 {
         display: none !important;
     }
 }
