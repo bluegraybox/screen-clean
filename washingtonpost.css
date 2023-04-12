@@ -5,5 +5,14 @@ div[data-qa="article-body-ad"],
 div[data-feature-id="ad/leaderboard"],
 div[data-feature-id="ad/flex"],
 wp-ad {
-	display: none !important;
+	height: 1px !important;
+}
+
+div[data-qa="leaderboard"] div.hide-for-print,
+div[data-qa="article-body-ad"] div.hide-for-print,
+div[data-feature-id="ad/leaderboard"] div.hide-for-print,
+div[data-feature-id="ad/flex"] div.hide-for-print,
+div[aria-hidden="true"].hide-for-print,
+wp-ad div.hide-for-print {
+	display:none !important;
 }

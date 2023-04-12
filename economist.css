@@ -25,6 +25,7 @@ div.adComponent_advert__V79Pp.adComponent_top__5oBsD.adComponent_hidden___o_ZB {
     border: 0px !important;
 }
 
+div.adComponent_advert__V79Pp:before,
 div.advert:before {
     content: "" !important;
 }
