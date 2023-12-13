@@ -1,6 +1,7 @@
 const closeButtonClasses = [
     'ytp-ad-overlay-close-button',
-    'ytp-ad-skip-button'
+    'ytp-ad-skip-button',
+    'ytp-ad-skip-button-modern'
 ];
 
 function poll() {
@@ -18,27 +19,46 @@ const mutationCallback = function(mutationsList, observer) {
 // Create an observer instance linked to the callback function
 const mutationObserver = new MutationObserver(mutationCallback);
 
+function clickButtonOnce(button) {
+    if (button.getAttribute("hasBeenClicked")) {
+        console.log("button has already been clicked");
+    }
+    else {
+        console.log("clicking button");  // tried to log button.className, but it's undefined?!
+        button.click();
+        button.setAttribute("hasBeenClicked", true);
+    }
+}
+
 function closePopupAd() {
     // console.log("checking for ads");
     closeButtonClasses.forEach(function(cbClass) {
         // console.log("checking button class: " + cbClass);
-        getElements(cbClass).forEach(function(button) {
-            console.log("found button");
-            button.click();
-        });
+        getElements(cbClass).forEach(clickButtonOnce);
     });
+
+    // close subscription box
+    var dismissButton = document.getElementById("dismiss-button");
+    if (dismissButton) {
+        var dismissButtons = collectionToArray(dismissButton.getElementsByTagName("button"));
+        dismissButtons.forEach(clickButtonOnce);
+    }
 }
 
-function getElements(cssClass) {
-    var htmlcollection = document.getElementsByClassName(cssClass);
-
-    // getElementsByClassName returns an HTMLCollection; covert to Array so we can work with it
+function collectionToArray(htmlcollection) {
+    // getElementsBy... methods return an HTMLCollection; covert to Array so we can work with it
     var arr = [];
     for (var i = 0; i < htmlcollection.length; i++) {
         var c = htmlcollection.item(i);
         arr.push(c);
     }
     return arr;
+}
+
+function getElements(cssClass) {
+    // getElementsByClassName returns an HTMLCollection; covert to Array so we can work with it
+    var htmlcollection = document.getElementsByClassName(cssClass);
+    return collectionToArray(htmlcollection);
 }
 
 function setupMutationObserver() {
