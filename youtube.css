@@ -3,3 +3,7 @@
 {
 	display: none !important;
 }
+
+div#fulfilled-layout.style-scope.ytd-ad-slot-renderer {
+    opacity: 0;
+}
