@@ -1,4 +1,5 @@
 const closeButtonClasses = [
+    'dismiss-button',
     'ytp-ad-overlay-close-button',
     'ytp-ad-skip-button',
     'ytp-ad-skip-button-modern'
