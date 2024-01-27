@@ -51,7 +51,8 @@
 		{
 			"matches": ["https://*.instagram.com/*"],
 			"run_at": "document_end",
-			"css": ["instagram.css"]
+			"css": ["instagram.css"],
+			"js": ["instagram.js"]
 		},
 		{
 			"matches": ["https://*.linkedin.com/*"],
