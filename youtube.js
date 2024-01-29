@@ -21,13 +21,18 @@ const mutationCallback = function(mutationsList, observer) {
 const mutationObserver = new MutationObserver(mutationCallback);
 
 function clickButtonOnce(button) {
-    if (button.getAttribute("hasBeenClicked")) {
-        console.log("button has already been clicked");
-    }
-    else {
-        console.log("clicking button");  // tried to log button.className, but it's undefined?!
-        button.click();
-        button.setAttribute("hasBeenClicked", true);
+    // Make sure our parent span isn't hidden
+    if (button.parentElement.style.display != 'none') {
+        if (button.getAttribute("hasBeenClicked")) {
+            console.log("button has already been clicked");
+            // console.log("button has already been clicked - clicking anyway");
+            // button.click();
+        }
+        else {
+            console.log("clicking button");  // tried to log button.className, but it's undefined?!
+            button.click();
+            button.setAttribute("hasBeenClicked", true);
+        }
     }
 }
 
