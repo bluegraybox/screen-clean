@@ -8,3 +8,11 @@ div#player-ads.style-scope.ytd-watch-flexy,
 div#fulfilled-layout.style-scope.ytd-ad-slot-renderer {
     visibility: hidden;
 }
+
+button.ytp-ad-overlay-close-button,
+button.ytp-ad-skip-button,
+button.ytp-ad-skip-button-modern {
+    height: 400px;
+    width: 400px;
+    background-color: red;
+}
