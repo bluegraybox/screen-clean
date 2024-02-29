@@ -11,8 +11,9 @@ filteredSubjects = ["trump", "republican", "virus", "coronavirus", "covid"];
 
 // Main entry point
 var startTime = Date.now();
-hideNewCommentDivs();  // Start with an empty array
-deleteFilteredPostDivs([]);
+// hideAds();
+// hideNewCommentDivs();  // Start with an empty array
+// deleteFilteredPostDivs([]);
 
 // const watchNode = document.getElementById('contentArea');
 var oldPostDivs = [];
@@ -126,4 +127,31 @@ function createShowHideFunc(commentDiv) {
             commentDiv.style.display = "block";
         }
     };
+}
+
+
+
+/* This only sorta works. FB only sets the ad link when you roll over it.
+   And it regenerates the ads as you scroll.
+*/
+function hideAds() {
+    var allAddLinks = document.querySelectorAll('a[href^="\/ads\/"]');
+    allAddLinks.forEach((adLink) => {
+        var parent = adLink.parentElement;
+        for (var i = 0; i < 11; i++) {
+            parent = parent.parentElement;
+        }
+        parent.style.visibility = "hidden";
+        parent.style.height = "10px";
+    });
+    console.log("hid "+allAddLinks.length+" ads");
+    var now = Date.now();
+    setTimeout(hideAds, 1000);  // run every second
+    /*
+    if ( (now - startTime) > 20000 && allAddLinks.length == 0) {
+        // if it's been 20 seconds since start and we still don't have any matching divs, give up
+    }
+    else {
+    }
+    */
 }
