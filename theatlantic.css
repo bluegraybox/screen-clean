@@ -12,6 +12,12 @@ gpt-ad,
 	display: none !important;
 }
 
+/* hide the crossword puzzles */
+.HomepageMiddle_crossword__hyFhr,
+.CrosswordLayout_flexWrapper__tZldS {
+    visibility: hidden;
+}
+
 .ArticleInjector_clsAvoider__pXehw {
     margin-bottom: 0 !important;
     padding: 1px !important;
