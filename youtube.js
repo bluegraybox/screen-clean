@@ -1,4 +1,5 @@
 const closeButtonClasses = [
+    'button[aria-label]="No thanks"',
     'dismiss-button',
     'ytp-ad-overlay-close-button',
     'ytp-ad-skip-button',
@@ -48,6 +49,17 @@ function closePopupAd() {
     if (dismissButton) {
         var dismissButtons = collectionToArray(dismissButton.getElementsByTagName("button"));
         dismissButtons.forEach(clickButtonOnce);
+    }
+
+    var popupPromo = document.getElementsByTagName("yt-mealbar-promo-renderer");
+    if (popupPromo.length >= 1) {
+        var promoButtons = popupPromo.item(0).getElementsByTagName("button");
+        for (var i = 0; i < promoButtons.length; i++) {
+            var button = promoButtons.item(i);
+            if (button.ariaLabel == "No thanks") {
+                clickButtonOnce(button);
+            }
+        }
     }
 }
 
