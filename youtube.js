@@ -1,9 +1,9 @@
 const closeButtonClasses = [
-    'button[aria-label]="No thanks"',
     'dismiss-button',
     'ytp-ad-overlay-close-button',
     'ytp-ad-skip-button',
-    'ytp-ad-skip-button-modern'
+    'ytp-ad-skip-button-modern',
+    'ytp-skip-ad-button'
 ];
 
 function poll() {
