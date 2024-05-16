@@ -11,7 +11,8 @@ div#fulfilled-layout.style-scope.ytd-ad-slot-renderer {
 
 button.ytp-ad-overlay-close-button,
 button.ytp-ad-skip-button,
-button.ytp-ad-skip-button-modern {
+button.ytp-ad-skip-button-modern,
+button.ytp-skip-ad-button {
     height: 400px;
     width: 400px;
     background-color: red;
