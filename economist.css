@@ -26,9 +26,11 @@ div.adComponent_advert__V79Pp.adComponent_top__5oBsD.adComponent_hidden___o_ZB {
     border: 0px !important;
 }
 
+div.css-1y1zooy.epfkve70,
 div.adComponent_advert__V79Pp:before,
+div.adComponent_advert__kPVUI:before,
 div.advert:before {
-    content: "" !important;
+    visibility: hidden;
 }
 
 @media print {
