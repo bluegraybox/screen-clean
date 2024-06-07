@@ -71,6 +71,11 @@
 			"css": ["nextdoor.css"]
 		},
 		{
+			"matches": ["https://*.reactormag.com/*"],
+			"run_at": "document_end",
+			"css": ["reactormag.css"]
+		},
+		{
 			"matches": ["https://*.slate.com/*"],
 			"run_at": "document_end",
 			"css": ["slate.css"]
