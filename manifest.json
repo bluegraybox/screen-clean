@@ -71,6 +71,11 @@
 			"css": ["nextdoor.css"]
 		},
 		{
+			"matches": ["https://*.questionablecontent.net/*"],
+			"run_at": "document_end",
+			"css": ["questionablecontent.css"]
+		},
+		{
 			"matches": ["https://*.reactormag.com/*"],
 			"run_at": "document_end",
 			"css": ["reactormag.css"]
