@@ -1,3 +1,5 @@
-ins.adsbygoogle {
+/* This doesn't work because visibility is set !important in the element's style.
+*/
+body > ins.adsbygoogle.adsbygoogle-noablate {
     visibility: hidden !important;
 }

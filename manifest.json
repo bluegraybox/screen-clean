@@ -73,7 +73,8 @@
 		{
 			"matches": ["https://*.questionablecontent.net/*"],
 			"run_at": "document_end",
-			"css": ["questionablecontent.css"]
+			"css": ["questionablecontent.css"],
+			"js": ["questionablecontent.js"]
 		},
 		{
 			"matches": ["https://*.reactormag.com/*"],
