@@ -55,6 +55,11 @@
 			"js": ["instagram.js"]
 		},
 		{
+			"matches": ["https://*.investopedia.com/*"],
+			"run_at": "document_end",
+			"css": ["investopedia.css"]
+		},
+		{
 			"matches": ["https://*.linkedin.com/*"],
 			"run_at": "document_end",
 			"css": ["linkedin.css"]
