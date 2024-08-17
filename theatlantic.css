@@ -1,4 +1,5 @@
 /* needs to be !important to override inline style */
+gpt-ad.GptAd_root__pAvcS,
 gpt-ad,
 .ad-boxinjector-d-wrapper,
 .ad-boxinjector-flex-d-wrapper,
@@ -9,7 +10,7 @@ gpt-ad,
 .cnvr-ad-ubr-iframe,
 .cnvr-ad-container,
 .dynamicAdvertContainer {
-	display: none !important;
+    visibility: hidden;
 }
 
 /* hide the crossword puzzles */
