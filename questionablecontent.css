@@ -3,3 +3,7 @@
 body > ins.adsbygoogle.adsbygoogle-noablate {
     visibility: hidden !important;
 }
+
+div.small-12.medium-expand.column {
+    min-width: 900px;
+}
