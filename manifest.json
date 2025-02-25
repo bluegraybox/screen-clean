@@ -7,6 +7,12 @@
 	],
 	"content_scripts": [
 		{
+			"matches": ["https://*.bandsintown.com/*"],
+			"run_at": "document_end",
+			"css": ["bandsintown.css"],
+			"js": ["bandsintown.js"]
+		},
+		{
 			"matches": ["https://*.bbc.com/*"],
 			"run_at": "document_end",
 			"css": ["bbc.css"]
