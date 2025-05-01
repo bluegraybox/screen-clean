@@ -1,0 +1,5 @@
+/* hide the crossword puzzles */
+div.pz-game-screen {
+    visibility: hidden;
+}
+

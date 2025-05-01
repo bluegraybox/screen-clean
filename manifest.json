@@ -82,6 +82,11 @@
 			"css": ["nextdoor.css"]
 		},
 		{
+			"matches": ["https://*.nytimes.com/*"],
+			"run_at": "document_end",
+			"css": ["nytimes.css"]
+		},
+		{
 			"matches": ["https://*.questionablecontent.net/*"],
 			"run_at": "document_end",
 			"css": ["questionablecontent.css"],
