@@ -108,6 +108,11 @@
 			"css": ["theatlantic.css"]
 		},
 		{
+			"matches": ["https://*.tumblr.com/*"],
+			"run_at": "document_end",
+			"css": ["tumblr.css"]
+		},
+		{
 			"matches": ["https://*.wired.com/*"],
 			"run_at": "document_end",
 			"css": ["wired.css"]

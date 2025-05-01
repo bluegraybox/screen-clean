@@ -4,6 +4,7 @@
 	display: none !important;
 }
 
+div#columns div#secondary div#secondary-inner div#panels ytd-engagement-panel-section-list-renderer,
 div#player-ads.style-scope.ytd-watch-flexy,
 div#fulfilled-layout.style-scope.ytd-ad-slot-renderer {
     visibility: hidden;
