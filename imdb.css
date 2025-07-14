@@ -1,6 +1,4 @@
-/* hide the crossword puzzles */
 /* needs to be !important to override inline style */
-div.pz-game-screen {
+div.first_party_ad_wrapper {
     visibility: hidden !important;
 }
-

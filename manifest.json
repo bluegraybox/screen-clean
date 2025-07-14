@@ -55,6 +55,11 @@
 			"css": ["guardian.css"]
 		},
 		{
+			"matches": ["https://*.imdb.com/*"],
+			"run_at": "document_end",
+			"css": ["imdb.css"]
+		},
+		{
 			"matches": ["https://*.instagram.com/*"],
 			"run_at": "document_end",
 			"css": ["instagram.css"],
