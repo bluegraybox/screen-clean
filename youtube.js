@@ -99,6 +99,8 @@ function showShortsLabel(header3) {
         if (rawLabel) {
             var label = rawLabel.replace(/, [0-9][^,]* views - play Short/, '');
             header3.textContent = label;
+            header3.style.color = 'white';
+            header3.style.backgroundColor = 'black';
             console.log("text set to: " + label);
         }
     }
