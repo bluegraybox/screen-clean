@@ -18,3 +18,8 @@ button.ytp-skip-ad-button {
     width: 400px;
     background-color: red;
 }
+
+h3.shortsLockupViewModelHostMetadataTitle {
+    color: white;
+    background-color: black;
+}

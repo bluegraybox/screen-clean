@@ -8,6 +8,7 @@ const closeButtonClasses = [
 
 function poll() {
     closePopupAd();
+    showShortsLabels();
     setTimeout(poll, 2000);  // run every 2 seconds
 }
 
@@ -88,6 +89,25 @@ function setupMutationObserver() {
     else {
         setTimeout(setupMutationObserver, 2000);  // wait two seconds
     }
+}
+
+function showShortsLabel(header3) {
+    // Each YouTube short has an H3 block with a useful aria-label attribute, but its body is empty.
+    // Copy the aria-label to the H3 element's content, after stripping out view count, which is already shown.
+    if ('' == header3.textContent) {
+        var rawLabel = header3.getAttribute("aria-label");
+        if (rawLabel) {
+            var label = rawLabel.replace(/, [0-9][^,]* views - play Short/, '');
+            header3.textContent = label;
+            console.log("text set to: " + label);
+        }
+    }
+}
+
+function showShortsLabels() {
+    var h3class = "shortsLockupViewModelHostMetadataTitle";
+    var elems = getElements(h3class);
+    elems.forEach(showShortsLabel);
 }
 
 // either poll or set up mutation observer, not both
