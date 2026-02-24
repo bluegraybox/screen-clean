@@ -1,6 +1,10 @@
+var pollInterval = 2 * 1000;  // run every N seconds
+var killDelay = 1 * 1000;  // wait N seconds before deleting ad
+
+
 function blankArticle(article, message) {
     return function () {
-        // article.innerHTML = '';
+        article.innerHTML = '';
         console.log(message);
     }
 }
@@ -22,7 +26,10 @@ function hideAds() {
         for (let j = 0; j < killPhrases.length; j++) {
             if (item.innerHTML.includes(killPhrases[j])) {
                 // do this on a delay so I have the satisfaction of watching it get deleted
-                setTimeout(blankArticle(item, "hiding article " + i), 2000);
+                // UPDATE: this doesn't really work because it zaps ads as soon as they're added to the page, sometimes before I scroll down to them
+                // setTimeout(blankArticle(item, "hiding article " + i), killDelay);
+                item.innerHTML = '';
+                // console.log("hiding article " + i);
                 continue;
             }
         }
@@ -31,8 +38,7 @@ function hideAds() {
 
 function poll() {
     hideAds();
-    var delay = 1;  // run every N seconds
-    setTimeout(poll, delay * 1000);
+    setTimeout(poll, pollInterval);
 }
 
 poll();
