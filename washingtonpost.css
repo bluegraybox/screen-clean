@@ -1,30 +1,21 @@
 /* needs to be !important to override inline style */
 
+div[data-qa="softwall-overlay"],
+div[data-qa="sf-inline-ad"],
 div[data-qa="leaderboard"],
 div[data-qa="article-body-ad"],
 div[data-feature-id="ad/leaderboard"],
 div[data-feature-id="ad/flex"],
-wp-ad {
-	height: 1px !important;
-    visibility: hidden !important;
-}
-
+wp-ad,
 div[data-qa="leaderboard"] div.hide-for-print,
 div[data-qa="article-body-ad"] div.hide-for-print,
 div[data-feature-id="ad/leaderboard"] div.hide-for-print,
 div[data-feature-id="ad/flex"] div.hide-for-print,
 div[aria-hidden="true"].hide-for-print,
-wp-ad div.hide-for-print {
-	height: 1px !important;
-    visibility: hidden !important;
-}
-
+wp-ad div.hide-for-print,
 div.wpds-c-dhzjXW-cbmvNE-isHomepageTopLeaderboard-true,
 wp-ad-wrapper {
+	position: absolute !important;
 	height: 1px !important;
-    visibility: hidden !important;
-}
-
-div[data-qa="softwall-overlay"] {
     visibility: hidden !important;
 }
