@@ -130,7 +130,8 @@
 		{
 			"matches": ["https://*.washingtonpost.com/*"],
 			"run_at": "document_end",
-			"css": ["washingtonpost.css"]
+			"css": ["washingtonpost.css"],
+			"js": ["washingtonpost.js"]
 		},
 		{
 			"matches": ["https://*.youtube.com/*"],
