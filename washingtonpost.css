@@ -1,5 +1,9 @@
 /* needs to be !important to override inline style */
 
+#primis_trigger,
+div.WP_RON_Incontent_970x250_pbc2s,
+div.sf-full-bleed,
+div.sf-full-bleed div,
 div[data-qa="softwall-overlay"],
 div[data-qa="sf-inline-ad"],
 div[data-qa="leaderboard"],
@@ -14,8 +18,11 @@ div[data-feature-id="ad/flex"] div.hide-for-print,
 div[aria-hidden="true"].hide-for-print,
 wp-ad div.hide-for-print,
 div.wpds-c-dhzjXW-cbmvNE-isHomepageTopLeaderboard-true,
+div:has(+ wp-ad-wrapper),
 wp-ad-wrapper {
 	position: absolute !important;
 	height: 1px !important;
+	margin: 0px !important;
+	padding: 0px !important;
     visibility: hidden !important;
 }

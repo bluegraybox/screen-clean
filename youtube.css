@@ -4,6 +4,7 @@
 	display: none !important;
 }
 
+#content > ytd-ad-slot-renderer,
 div#columns div#secondary div#secondary-inner div#panels ytd-engagement-panel-section-list-renderer,
 div#player-ads.style-scope.ytd-watch-flexy,
 div#fulfilled-layout.style-scope.ytd-ad-slot-renderer {
@@ -18,6 +19,28 @@ button.ytp-skip-ad-button {
     width: 400px;
     background-color: red;
 }
+
+/* Don't need this; obsoleted by following section; just keep for reference
+#page-manager > ytd-browse.style-scope.ytd-page-manager[page-subtype="home"],
+#page-manager > ytd-browse.style-scope.ytd-page-manager[page-subtype="home"] div,
+#page-manager > ytd-browse.style-scope.ytd-page-manager[page-subtype="home"] div #contents > ytd-rich-item-renderer {
+    visibility: hidden;
+    height: 1px;
+}
+*/
+
+/*
+ytd-rich-item-renderer.style-scope.ytd-rich-shelf-renderer,
+ytd-rich-section-renderer.style-scope.ytd-rich-grid-renderer,
+ytd-guide-renderer#guide-renderer.style-scope.ytd-app,
+div#content.style-scope.ytd-rich-section-renderer,
+div#contents.style-scope.ytd-rich-shelf-renderer,
+div#contents-container.style-scope.ytd-rich-shelf-renderer,
+ytd-app {
+    visibility: hidden;
+    height: 1px;
+}
+*/
 
 /* do this in javascript now
 h3.shortsLockupViewModelHostMetadataTitle {

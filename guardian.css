@@ -1,5 +1,6 @@
 /* needs to be !important to override inline style */
 
+div.dcr-11e3tdy,
 div.ad-slot-container,
 div.js-ad-slot,
 div.js-ad-slot.ad-slot,
@@ -18,6 +19,10 @@ div.js-ad-slot.ad-slot div,
 #bannerandheader .top-banner-ad-container.js-top-banner div {
 	height: 1px !important;
 	min-height: 1px !important;
+}
+
+div.dcr-11e3tdy section.dcr-1xdhyk6 {
+    visibility: hidden;
 }
 
 /* div.js-ad-slot.ad-slot ad-slot--inline ad-slot--inline1 ad-slot--outstream ad-slot--rendered */

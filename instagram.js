@@ -3,7 +3,7 @@
 
 
 // if we see these phrases, assume it's an ad
-var killPhrases = ['Learn more', 'Suggested for you', 'Shop now', 'Order now', 'Watch more'];
+var killPhrases = ['Learn more', 'Suggested for you', 'Shop now', 'Order now', 'Watch more', '>Ad<', '>Sponsored'];
 
 // run every N seconds
 var pollInterval = 2 * 1000;
