@@ -13,41 +13,45 @@ Do `pbpaste | less` to see the actual value, then use sed to strip them out:
 
 */
 
-function log_captions() {
-    // This is the tricky and fragile bit; the rest is housekeeping
-    var elems = document.getElementsByClassName('ytp-caption-segment');
+var captionLogger = {
+    last_text: [],  // array for last-logged text
+    full_text: '', // text accumulator
+    log_captions() {
+        // This is the tricky and fragile bit; the rest is housekeeping
+        var elems = document.getElementsByClassName('ytp-caption-segment');
 
-    if (elems) {
-        var changed = false;
-        for (var i = 0; i < elems.length; i++) {
-            var new_text = elems.item(i)?.textContent;
-            if (new_text != last_text[i]) {
-                changed = true;
-            }
-            last_text[i] = new_text;
-        }
-        if (changed) {
+        if (elems) {
+            var changed = false;
             for (var i = 0; i < elems.length; i++) {
-                console.log(last_text[i]);
-                // add to accumulator; needs to be initialized at the beginning and logged at end
-                full_text += last_text[i] + "\n";
+                var new_text = elems.item(i)?.textContent;
+                if (new_text != this.last_text[i]) {
+                    changed = true;
+                }
+                this.last_text[i] = new_text;
+            }
+            if (changed) {
+                for (var i = 0; i < elems.length; i++) {
+                    console.log(this.last_text[i]);
+                    // add to accumulator; needs to be initialized at the beginning and logged at end
+                    this.full_text += this.last_text[i] + "\n";
+                }
             }
         }
+    },
+    start() {
+        this.last_text = [];  // array for last-logged text
+        this.full_text = ''; // text accumulator
+        // Run log_captions every 100ms
+        var logger = this;
+        this.interval_id = setInterval(() => logger.log_captions(), 100);
+    },
+    stop() {
+        // stop logging
+        clearInterval(this.interval_id);
+        this.dump();
+    },
+    dump() {
+        // dump text accumulator as single log message
+        console.log(this.full_text);
     }
 }
-
-// create/clear array for last-logged text
-var last_text = [];
-
-// create/clear text accumulator (accessible from function)
-var full_text = '';
-
-// Run log_captions every 100ms
-var interval_id = setInterval(log_captions, 100);
-
-// stop logging
-clearInterval(interval_id);
-
-// dump text accumulator as single log message
-console.log(full_text);
-
