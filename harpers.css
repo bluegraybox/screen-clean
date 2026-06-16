@@ -1,0 +1,4 @@
+div.sidebar-ad {
+    /* needs to be !important to override inline style */
+    visibility: hidden !important;
+}

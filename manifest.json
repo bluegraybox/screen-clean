@@ -55,6 +55,11 @@
 			"css": ["guardian.css"]
 		},
 		{
+			"matches": ["https://harpers.org/*", "https://*.harpers.org/*"],
+			"run_at": "document_end",
+			"css": ["harpers.css"]
+		},
+		{
 			"matches": ["https://*.imdb.com/*"],
 			"run_at": "document_end",
 			"css": ["imdb.css"]
